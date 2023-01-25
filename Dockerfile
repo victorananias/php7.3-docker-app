@@ -21,4 +21,6 @@ RUN docker-php-ext-install bcmath pcntl gd opcache zip
 
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 
+COPY ./composer.json /app
+
 RUN export COMPOSER_ALLOW_SUPERUSER=1 && composer install
